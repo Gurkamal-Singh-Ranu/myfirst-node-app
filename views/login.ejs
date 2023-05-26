@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <main>
+        <form  method="post" action="/login">
+            <h1>Login</h1>
+            <tr>
+                <input 
+                type="email"
+                 name="email" 
+                 value="<%= locals.email %>"
+                 placeholder="Email"/>
+            </tr>
+            <br/>
+            <tr>
+                <td>
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password"
+                    />
+                </td>
+            </tr>
+            <br/>
+            
+ <!-- locals is for if there exists a message only then it will render
+ e.g. if u logout then you will be redirected to login page so it will give error as there will be no message.
+ so we need to show it only when it exists.             -->
+            <p style="color: red; font-size: small; "> 
+                <%= locals.message %>
+            </p>
+            <tr> <button type="submit">Login</button></tr>
+        </form>
+    </main>
+</body>
+</html>  
