@@ -4,8 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import jwt from "jsonwebtoken"; 
 import bcrypt from "bcrypt";
-// import { env } from "process";
-import env from "env";
+import {config} from "dotenv";
 const app = express();
 // const users=[];
 
@@ -13,9 +12,11 @@ const app = express();
 
 // process.env.MONGO_URL
 
-const MONGO_URL = 'mongodb+srv://gurkamal01382:gurii@cluster0.yh41qhi.mongodb.net/?retryWrites=true&w=majority'
-
-mongoose.connect(MONGO_URL,{dbName:"backend"})
+// const MONGO_URL = 'mongodb+srv://gurkamal01382:gurii@cluster0.yh41qhi.mongodb.net/?retryWrites=true&w=majority'
+config({
+    path: "./config.env",
+})
+mongoose.connect(process.env.MONGO_URL,{dbName:"backend"})
 .then(()=> console.log("Database Connected"))
 .catch((e)=>console.log(e));
 
@@ -124,6 +125,6 @@ app.get("/logout",(req,res)=>{
 
 
 
-app.listen(5000,()=>{
+app.listen(3000,()=>{
     console.log("server is working");
 })
