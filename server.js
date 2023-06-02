@@ -6,13 +6,8 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import {config} from "dotenv";
 const app = express();
-// const users=[];
 
 //Connecting to mongo database
-
-// process.env.MONGO_URL
-
-// const MONGO_URL = 'mongodb+srv://gurkamal01382:gurii@cluster0.yh41qhi.mongodb.net/?retryWrites=true&w=majority'
 config({
     path: "./config.env",
 })
